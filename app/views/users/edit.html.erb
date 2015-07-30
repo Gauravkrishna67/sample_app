@@ -1,0 +1,38 @@
+<% provide(:title, "Edit user") %>
+<h1>Update your profile</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <div class="input-group">
+          <span class="input-group-addon glyphicon glyphicon-shopping-cart"></span>
+          <%= f.text_field :name, placeholder: "Name", class: "form-control input-lg", label: false %>
+        </div><br/>
+
+      <div class="input-group">
+          <span class="input-group-addon glyphicon glyphicon-shopping-cart"></span>
+          <%= f.text_field :email, placeholder: "Email", class: "form-control input-lg", label: false %>
+        </div><br/>
+
+        <div class="input-group">
+          <span class="input-group-addon glyphicon glyphicon-shopping-cart"></span>
+          <%= f.text_field :password, placeholder: "Password", class: "form-control input-lg", label: false %>
+        </div><br/>
+
+      <div class="input-group">
+          <span class="input-group-addon glyphicon glyphicon-shopping-cart"></span>
+          <%= f.text_field :password_confirmation, placeholder: "Password_Confirmation", class: "form-control input-lg", label: false %>
+        </div><br/>
+
+        <%= f.file_field :image %>
+      <%= f.submit "Save changes", class: "btn btn-primary" %>
+    <% end %>
+
+    <div class="gravatar_edit">
+      <%= gravatar_for @user %>
+      <a href="http://gravatar.com/emails" target="_blank">change</a>
+    </div>
+  </div>
+</div>
